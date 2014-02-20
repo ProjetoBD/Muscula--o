@@ -55,4 +55,6 @@ Exercicios varchar(80)
 ALTER TABLE Proprietario ADD FOREIGN KEY (Login) REFERENCES Personal(Login);
 ALTER TABLE Personal ADD FOREIGN KEY (CodCliente) REFERENCES Cliente(CodCliente);
 
+:)
+
 
