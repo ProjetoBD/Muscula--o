@@ -1,0 +1,58 @@
+BANCO DE DADOS
+
+#CREATE DATABASE PROJETOBD;
+#USE PROJETOBD;
+CREATE TABLE Propietario(
+Login varchar(100) NOT NULL,
+Usuario varchar(100) NOT NULL,
+Senha varchar(100) NOT NULL,
+PRIMARY KEY (Usuario,Senha)
+); 
+
+CREATE TABLE Personal(
+Nome varchar(100) NOT NULL,
+Login varchar(50) NOT NULL,
+Telefone numeric(20,0),
+EnderecoCompleto varchar(100) NOT NULL,
+Senha varchar(20) NOT NULL,
+PRIMARY KEY (Login)
+);
+
+CREATE TABLE Cliente(
+CodCliente numeric(50),
+Nome varchar(100),
+Telefone numeric(30),
+Endereco varchar (100),
+PRIMARY KEY (CodCliente)
+);
+
+CREATE TABLE Exame(
+Amenese varchar(200),
+IMC varchar(100),
+CodCliente numeric(50,0),
+PRIMARY KEY(CodCliente),
+FOREIGN KEY (CodCliente) REFERENCES Cliente(CodCliente)
+);
+
+CREATE TABLE Treino(
+CodCliente numeric(50),
+PRIMARY KEY(CodCliente),
+FOREIGN KEY (CodCliente) REFERENCES Cliente(CodCliente)
+);
+
+CREATE TABLE Aerobica(
+Tempo timestamp,
+Exercicios varchar(100)
+);
+
+CREATE TABLE Musculacao(
+Series numeric(50),
+Quantidade varchar(50),
+Exercicios varchar(80)
+);
+
+
+ALTER TABLE Proprietario ADD FOREIGN KEY (Login) REFERENCES Personal(Login);
+ALTER TABLE Personal ADD FOREIGN KEY (CodCliente) REFERENCES Cliente(CodCliente);
+
+
