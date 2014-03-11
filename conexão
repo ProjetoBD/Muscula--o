@@ -1,0 +1,38 @@
+package conexaoBD;
+
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+
+public class conectabanco {
+    public Statement st; // Responsável por preparar e realizar pesquisas no BD.
+    public ResultSet reslt; // Responsável por armazenar o resultado de uma pesquisa passada para o Statement
+    private String driver = "org.mysql.Driver"; // È responsável por identificar o BD  e realizar a conexão. 
+    private String caminho = "jdbc:mysql://localhost/Academia"; // Responsável por setar o local do BD
+    private String usuario = "root";
+    private String senha = "";
+    public Connection con; // Responsável por realizar a conexão com o BD
+    
+    
+    
+    public void conexao (){ // Metódo responsável por realizar a conexão com o banco.
+        try {
+               System.setProperty("jdbc.Drivers", driver); // Seta a propriedade do driver de conexão
+            con = DriverManager.getConnection(caminho, usuario, senha); // Realiza a conexão com o BD
+            JOptionPane.showMessageDialog(null, "Conectado com sucesso!"); // Imprime uma caixa de mensagens
+        } catch (SQLException ex) {
+            Logger.getLogger(conectabanco.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro de conexão");
+        }  
+}
+    public void desconecta(){ // Método para fechar a conexão com o BD
+        try {
+            con.close(); // Fecha a conexão
+        } catch (SQLException ex) {
+            Logger.getLogger(conectabanco.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro ao fechar a conexão");
+        }
+}
+}
