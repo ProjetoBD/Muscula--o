@@ -55,5 +55,46 @@ Exercicios varchar(80)
 ALTER TABLE Proprietario ADD FOREIGN KEY (Login) REFERENCES Personal(Login);
 ALTER TABLE Personal ADD FOREIGN KEY (CodCliente) REFERENCES Cliente(CodCliente);
 
+COMEÇA DAQQQUIII
 
+** Pessoal, aí está o código do mysql com os autoincrements, tudo pronto:
+create database Academia;
+Use academia;
+	
+#CREATE DATABASE PROJETOBD;
+#USE PROJETOBD;
+CREATE TABLE Propietario(
 
+Login varchar(100) NOT NULL, 
+Usuario varchar(100) NOT NULL, auto_increment,
+Senha varchar(100) NOT NULL,
+PRIMARY KEY (Usuario,Senha) 
+
+); 
+
+CREATE TABLE Personal(
+Nome varchar(100) NOT NULL, 
+Login varchar(50) NOT NULL, auto_increment
+Telefone numeric(20,0),
+EnderecoCompleto varchar(100) NOT NULL,
+Senha varchar(20) NOT NULL,
+data_nascimento date NOT NULL,
+CPF numeric (20,0) NOT NULL,
+RG numeric (20,0) NOT NULL,
+PRIMARY KEY (CPF)
+);
+
+CREATE TABLE Cliente(
+CodCliente numeric(50),
+Nome varchar(100),
+Telefone numeric(30),
+Endereco varchar (100),
+idade numeric (2,0),
+CEP numeric(20,0),
+data_inicial date,
+Bairro varchar (100),
+email varchar (150),
+cidade varchar (50),
+IMC  numeric (10,0),
+PRIMARY KEY (CodCliente)
+);
