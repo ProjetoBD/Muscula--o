@@ -1,0 +1,82 @@
+código do MYSQL último:
+
+	create database academia;
+use academia;
+
+CREATE TABLE Propietario(
+Login varchar(100) NOT NULL,
+Usuario varchar(100) NOT NULL,
+Senha varchar(100) NOT NULL,
+PRIMARY KEY (Usuario,Senha)
+); 
+
+CREATE TABLE Personal(
+Nome varchar(100) NOT NULL,
+Telefone numeric(20,0),
+EnderecoCompleto varchar(100) NOT NULL,
+#data_nascimento date NOT NULL,
+CPF numeric (20,0) NOT NULL,
+RG numeric (20,0) NOT NULL,
+Cod_per numeric (2,0) Not null,
+PRIMARY KEY (Cod_per)
+);
+
+CREATE TABLE Cliente(
+CodCliente numeric(50),
+Nome varchar(100),
+Telefone numeric(30),
+Endereco varchar (100),
+idade numeric (2,0),
+CEP numeric(20,0),
+data_inicial date,
+Bairro varchar (100),
+email varchar (150),
+cidade varchar (50),
+IMC  numeric (10,0),
+pratica_atividade varchar (100),
+duracao_atividade varchar (100),
+pratica_regularmente varchar (100),
+duracao_regularmente varchar (100),
+tempo_pratica varchar (100),
+objetivo varchar (50), 
+
+PRIMARY KEY (CodCliente)
+);
+
+CREATE TABLE Funcionario(
+Nome varchar (100),
+Data_de_nascimento date,
+CPFF numeric (12,0),
+RGF numeric (10,0),
+Cod_fun numeric (3,0),
+area_atuacao varchar (50),
+primary key (cod_fun)
+);
+
+
+#CREATE TABLE Treino(
+
+#CodCliente numeric(50),
+
+#PRIMARY KEY(CodCliente),
+
+#FOREIGN KEY (CodCliente) REFERENCES Cliente(CodCliente)
+#);
+
+
+
+CREATE TABLE Aerobica(
+
+IMC numeric(5,0)
+);
+
+
+
+CREATE TABLE Musculacao(
+
+IMC numeric(5,0)
+);
+
+
+
+select * from cliente;
